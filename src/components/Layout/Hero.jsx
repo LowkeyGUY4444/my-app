@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <div>
         <section className='relative'>
-            <img src={heroImg} alt="home image" className='w-full h-[400px] md:h-[600px] lg:h-[750px] object-cover' />
+            <img src={heroImg} alt="hero Banner" className='w-full h-[400px] md:h-[600px] lg:h-[750px] object-cover' />
             <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-5'>
                 <div className='text-center text-white px-6'>
                     <h1 className='text-4xl md:text-9xl font-bold tracking-tighter uppercase mb-4'>Vacation <br />Ready</h1>
