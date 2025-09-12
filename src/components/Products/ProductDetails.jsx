@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { toast } from 'sonner';
+import Maylike from './MayLike';
 
 
 const selectedProduct = {
@@ -25,6 +27,34 @@ const selectedProduct = {
     ],
 }  
 
+
+
+const similarProducts = [
+    {
+    _id: 1,
+    name: 'Jacket',
+    price: 'RS.5999',
+    images: [{ url:'https://picsum.photos/500?random=12'}],
+    },
+        {
+    _id: 2,
+    name: 'Jacket',
+    price: 'RS.5999',
+    images: [{ url:'https://picsum.photos/500?random=13'}],
+    },    {
+    _id: 3,
+    name: 'Jacket',
+    price: 'RS.5999',
+    images: [{ url:'https://picsum.photos/500?random=14'}],
+    },    {
+    _id: 4,
+    name: 'Jacket',
+    price: 'RS.5999',
+    images: [{ url:'https://picsum.photos/500?random=15'}],
+    },
+] 
+
+
 const ProductDetails = () => {
 
     const [mainImage, setMainImage] = useState(selectedProduct.images[0]);
@@ -41,6 +71,24 @@ const ProductDetails = () => {
             setMainImage(selectedProduct.images[0].url);
         }
     }, [selectedProduct]);
+
+
+    // Tost Duration logic
+    const handleAddToCart = () => {
+        if (!selectedSize || !selectedColor) {
+            toast.error('Please select size and color before addind to cart.', {duration: 1000,} ) ;
+            return;
+                  
+        }
+        setIsButtonDisabled(true);
+        setTimeout(() => {
+            toast.success("Product added to cart!", {
+                duration: 1000,
+            
+        });
+        setIsButtonDisabled(false);
+    }, 500);
+    };
 
 
   return (
@@ -110,7 +158,7 @@ const ProductDetails = () => {
                         </div>
                         {/* for size */}
                         <div className='mb-4'>
-                            <p className='text-gray-700'>Size:</p>
+                            <p className='text-gray-700'>Size:</p> 
                             <div className='flex gap-2 mt-2'>
                                 {selectedProduct.sizes.map((size) => (
                                     <button 
@@ -131,12 +179,23 @@ const ProductDetails = () => {
                         </div>
                         {/* Add to Cart Button */}
                         <div className='mb-4'>
-                            <button className='w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition duration-300'>
-                                Add to Cart
+                            <button 
+                                disabled={isButtonDisabled}
+                                onClick={handleAddToCart} 
+                                className={`w-full bg-black text-white py-3 rounded-lg mb-4 ${isButtonDisabled ? 'cursor-not-allowed' : 'hover:bg-gray-900'}`}
+                            >
+                                {isButtonDisabled ? 'Adding...' : "Add to Cart"}
                             </button>
                         </div>
                     </div>
                 </div> 
+            </div>
+
+            {/* for You May Like section */}
+            <div className='mt-20'>
+                <h2 className='text-2xl font-bold mb-4 text-center'>You May Also Like</h2>
+                <Maylike  products={similarProducts}  />
+
             </div>
         </div>
     </div>
