@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { HiOutlineUser,HiOutlineShoppingBag} from "react-icons/hi";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { MdClose } from "react-icons/md";
-
 import SearchBar from './SearchBar';
 import CartDrawer from '../Layout/CartDrawer';
 import { useState } from 'react';
@@ -41,9 +40,11 @@ const Navbar = () => {
         <Link to='#' className='text-gray-700 hover:text-black font-medium uppercase'>Topware</Link>
         <Link to='#' className='text-gray-700 hover:text-black font-medium uppercase'>bottemware</Link>
     </div>
+
     {/* Right-Icon */}
     <div className='flex items-center space-x-4'>
-        <Link to='/profile' className=' hover:text-black '>
+        {/* this is for profile for login page use /login */}
+        <Link to='/profile' className=' hover:text-black '>  
             <HiOutlineUser className='h-6 w-6 text-gray-700' />
         </Link>
 

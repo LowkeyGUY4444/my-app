@@ -1,24 +1,23 @@
 import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import login from '../assets/login.webp';
+import register from '../assets/register.webp';
 
 
+const Register = () => {
 
 
-const Login = () => {
-
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [password, setPassword] = useState(''); 
     // const [error, setError] = useState('');
-    // const [loading, setLoading] = useState(false);
+    // const [loading, setLoading]
 
-        const handleSubmit = async (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('User registered', {email, password });
+        console.log('User registered', { name, email, password });
     };
-
-
 
   return (
     <div className='flex'>
@@ -27,8 +26,17 @@ const Login = () => {
                 <div className='mb-6 justify-center flex'>
                     <h2 className='text-xl font-bold'>HAMRObazzer</h2>
                 </div>
-                <h2 className='text-2xl font-bold mb-6 text-center'>Hey there! 👋</h2>
-                <p className='text-center mb-6'>Enter your Username and Password to login</p>
+                <h2 className='text-2xl font-bold mb-6 text-center'>Welcome!👋</h2>
+                <p className='text-center mb-6'>Please fill in you details to carate an account.</p>
+                <div className='mb-4'>
+                    <label className='block text-gray-700 text-sm font-bold mb-2'>Name</label>
+                    <input type='text' 
+                        placeholder='Enter your name' 
+                        onChange={(e) => setName(e.target.value)}
+                        className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight' 
+                        required
+                    />
+                </div>
                 <div className='mb-4'>
                     <label className='block text-gray-700 text-sm font-bold mb-2'>Email</label>
                         <input type='text' 
@@ -47,18 +55,20 @@ const Login = () => {
                         required
                         />
                 </div>
-                <button type='submit' className='w-full bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-900
-                transition'>Sign In</button>
+                <button 
+                type='submit' 
+                className='w-full bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-900
+                transition'>Sign Up</button>
 
-                <p className='mt-6 text-center text-sm'>Dont have an account?{" "}
-                    <Link to='/register' className='text-blue-500 hover:underline transition'>Register</Link>
+                <p className='mt-6 text-center text-sm'>Alrady have an account?{" "}
+                    <Link to='/login' className='text-blue-500 hover:underline transition'>Login</Link>
                 </p>
 
             </form>
         </div>
         <div className='hidden md:block w-1/2 bg-gray-800'>
             <div className='h-full flex flex-col justify-center items-center'>
-                <img className=' h-[750px] w-full object-cover' src={login} alt='login banner'></img>
+                <img className=' h-[750px] w-full object-cover' src={register} alt='login banner'></img>
             </div>
         </div>
       
@@ -66,9 +76,4 @@ const Login = () => {
   )
 }
 
-export default Login
-
-
-
-// for input 
-// w-full p-2 rounded border
+export default Register

@@ -5,6 +5,7 @@ import NewArrivals from '../components/Products/NewArrivals';
 import ProductDetails from '../components/Products/ProductDetails';
 import Maylike from '../components/Products/MayLike';
 import FeaturedCollection from '../components/Products/FeaturedCollection';
+import FeatureSection from '../components/Products/FeatureSection';
 
 
 const palceholderProducts =[
@@ -75,8 +76,9 @@ const Home = () => {
           </h2>
            <Maylike products={palceholderProducts} />
         </div>
-
         <FeaturedCollection />
+
+        <FeatureSection />
 
 
     </div>
