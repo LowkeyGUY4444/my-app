@@ -56,13 +56,13 @@ const MyOrderPage = () => {
         <table className='min-w-full text=left text-gray-500'>
             <thead className='bg-gray-100 text-xs uppercase text-gray-700'>
                 <tr>
-                    <th className='py-2 px-4 sm:py-3'>Image</th>
-                    <th className='py-2 px-4 sm:py-3'>Order ID</th>
-                    <th className='py-2 px-4 sm:py-3'>Created</th>
-                    <th className='py-2 px-4 sm:py-3'>Shipping Address</th>
-                    <th className='py-2 px-4 sm:py-3'>Items</th>
-                    <th className='py-2 px-4 sm:py-3'>Prise</th>
-                    <th className='py-2 px-4 sm:py-3'>Status</th>
+                    <th className='py-2 px-4 sm:py-3 text-left'>Image</th>
+                    <th className='py-2 px-4 sm:py-3 text-left'>Order ID</th>
+                    <th className='py-2 px-4 sm:py-3 text-left'>Created</th>
+                    <th className='py-2 px-4 sm:py-3 text-left'>Shipping Address</th>
+                    <th className='py-2 px-4 sm:py-3 text-left'>Items</th>
+                    <th className='py-2 px-4 sm:py-3 text-left'>Prise</th>
+                    <th className='py-2 px-4 sm:py-3 text-left'>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -99,7 +99,7 @@ const MyOrderPage = () => {
                                         order.isPaid
                                         ? "bg-green-100 text-green-700"
                                         : "bg-red-100 text-red-700"
-                                        }`}
+                                        } px-2 py-2 rounded-full text-xs sm:text-sm font-medium`}
                                     >
                                         {order.isPaid ? "Paid" : "Pending"}
                                     </span>

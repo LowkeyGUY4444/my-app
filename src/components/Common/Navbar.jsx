@@ -35,7 +35,7 @@ const Navbar = () => {
     </div>
     {/* center-links */}
     <div className='hidden md:flex items-center space-x-6'>
-        <Link to='#' className='text-gray-700 hover:text-black font-medium uppercase'>Men</Link>
+        <Link to='/collections/all' className='text-gray-700 hover:text-black font-medium uppercase'>Men</Link>
         <Link to='#' className='text-gray-700 hover:text-black font-medium uppercase'>WomMen</Link>
         <Link to='#' className='text-gray-700 hover:text-black font-medium uppercase'>Topware</Link>
         <Link to='#' className='text-gray-700 hover:text-black font-medium uppercase'>bottemware</Link>
