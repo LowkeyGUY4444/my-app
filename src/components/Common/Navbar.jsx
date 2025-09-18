@@ -83,7 +83,7 @@ const Navbar = () => {
         <div className='p-4'>
             <h2 className='text-xl font-semibold mb-4'>Menu</h2>
             <nav className='space-y-4'>
-                <Link to='#' onClick={toggleNavDropdown}  className='block text-gray-700 hover:text-black font-medium py-2 uppercase'>Men</Link>
+                <Link to='/collections/all' onClick={toggleNavDropdown}  className='block text-gray-700 hover:text-black font-medium py-2 uppercase'>Men</Link>
                 <Link to='#' onClick={toggleNavDropdown}  className='block text-gray-700 hover:text-black font-medium py-2 uppercase'>WomMen</Link>
                 <Link to='#' onClick={toggleNavDropdown}  className='block text-gray-700 hover:text-black font-medium py-2 uppercase'>Topware</Link>
                 <Link to='#' onClick={toggleNavDropdown}  className='block text-gray-700 hover:text-black font-medium py-2 uppercase'>bottemware</Link>    

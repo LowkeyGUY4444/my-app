@@ -32,24 +32,24 @@ const selectedProduct = {
 const similarProducts = [
     {
     _id: 1,
-    name: 'Jacket',
-    price: 'RS.5999',
+    name: 'hodiee',
+    price: 'RS.2999',
     images: [{ url:'https://picsum.photos/500?random=12'}],
     },
         {
     _id: 2,
     name: 'Jacket',
-    price: 'RS.5999',
+    price: 'RS.7659',
     images: [{ url:'https://picsum.photos/500?random=13'}],
     },    {
     _id: 3,
-    name: 'Jacket',
+    name: 'Coat',
     price: 'RS.5999',
     images: [{ url:'https://picsum.photos/500?random=14'}],
     },    {
     _id: 4,
-    name: 'Jacket',
-    price: 'RS.5999',
+    name: 'Hat',
+    price: 'RS.999',
     images: [{ url:'https://picsum.photos/500?random=15'}],
     },
 ] 

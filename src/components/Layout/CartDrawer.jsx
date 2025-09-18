@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { use } from 'react'
 
 import { HiMiniXMark } from "react-icons/hi2";
 import CartContent from '../Cart/CartContent';
+import {  useNavigate } from 'react-router-dom';
+import Checkout from '../Cart/Checkout';
+
 
 
 const CartDrawer = ({drawerOpen, toggleCartDrawer}) => {
+
+    const navigate = useNavigate();
+    const handleCheckout = () => {
+        navigate('/checkout');
+    };
+
+
 
   return <div 
     className={`fixed top-0 right-0 w-3/4 sm:w-1/2 md:w-[30rem] h-full bg-white shadow-lg z-50
@@ -34,7 +44,7 @@ const CartDrawer = ({drawerOpen, toggleCartDrawer}) => {
 
         {/* Checkout button */}
         <div className='p-4 border-t border-gray-300'>
-            <button className='w-full bg-TopBar-red text-white py-2 px-4 rounded hover:bg-red-600 transition-colors sticky bottom-0'>
+            <button onClick={handleCheckout} className='w-full bg-TopBar-red text-white py-2 px-4 rounded hover:bg-red-600 transition-colors sticky bottom-0'>
                 Checkout
             </button>
             <p className='text-sm text-gray-600 mt-2 tracking-tighter'>

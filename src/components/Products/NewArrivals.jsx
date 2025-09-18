@@ -210,12 +210,14 @@ const NewArrivals = () => {
                     <div 
                         key={item._id} 
                         className='min-w-[100%] sm:min-w-[50%] lg:min-w-[30%] relative '>
+                            <Link to={`/product/${item._id}`} className='block'>
                             <img 
                                 src={item.image[0]?.url} 
                                 alt={item.image[0]?.altText}
                                 className='w-full h-[500px] object-cover rounded-lg'
                                 draggable={false}
                             />
+                            </Link>
                             <div className='absolute bottom-0 left-0 right-0 bg-opacity-50 backdrop-blur-md  text-white p-4 rounded-b-lg'>
                                 <Link to={`/product/${item._id}`} className='block'>
                                     <h3 className='font-medium '>{item.name}</h3>
