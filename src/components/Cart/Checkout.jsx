@@ -1,9 +1,7 @@
 import React, { use } from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-
-
+import PaypalButton from './PaypalButton';
 
     const cart = {
     products:[
@@ -13,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
             size: 'M',
             color: 'Red',
             quantity: 2,
-            price: "Rs. 799",
+            price: 799,
             image:"https://picsum.photos/200?random=1"
         },
         {
@@ -22,11 +20,11 @@ import { useNavigate } from 'react-router-dom';
             size: 'M',
             color: 'blue',
             quantity: 1,
-            price: "Rs. 1999",
+            price: 1999,
             image:"https://picsum.photos/200?random=2"
         },
     ],
-    totalprose: 2798,
+    totalprice: 2798,
 }
 
 const Checkout = () => {
@@ -48,6 +46,18 @@ const Checkout = () => {
         e.preventDefault();
         setCheckoutId(123456789);
     };
+
+    const handlePaymentSuccess = (details) => {
+        console.log("Payment Successful", details);
+        navigate("/orderconfirmation");
+    };
+
+
+     const handleClick = () => {
+            // Redirect to confirmation page
+            navigate("/orderconfirmation");
+    };
+
 
 
   return (
@@ -144,13 +154,64 @@ const Checkout = () => {
                     </button>
                 ) : (
                     <div>
-                        <h3 className='text-lg mb-4'>Pay with Esewa</h3>
-                        {/* Esewa component */}
-                    </div>
+                        {/* paypal component */}
+                        
+                        <PaypalButton amount={cart.totalprice} onSuccess={handlePaymentSuccess} onError={(err) => {
+                            console.log(err);
+                        alert("payment Unsuccessful! Try again")}} />
+
+                        {/* ✅ Cash on Delivery */}
+                        <button
+                            onClick={handleClick}
+                            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-md transition"
+                        >
+                            Cash on Delivery
+                        </button>
+
+                    </div>  
+                    
                 )}
+
             </div>
-            
         </form>
+      </div>
+      {/* Right Section */}
+      <div className='bg-gray-50 p-6 rounded-lg'>
+        <h3 className='text-lg mb-4'>Order Summary</h3>
+        <div className='border-t py-4 mb-4'>
+            {cart.products.map((product, index) => (
+                <div key={index} className='flex justify-between items-start py-2 border-b'>
+                    <div className='flex items-start'>
+                     
+                        <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-20 h-24 object-cover mr-4"
+                        />
+                        <div> 
+                            <h3 className='text-mb'>{product.name}</h3>
+                            <p className='text-gray-500'>Size: {product.size}</p>
+                            <p className='text-gray-500'>Color: {product.color}</p>
+                        </div>
+                    </div>
+                    <p className='text-xl'>RS.{product.price?.toLocaleString()}</p>
+                </div>
+            ))}
+
+        </div>
+            <div className='flex justify-between items-center text-lg mb-4'>
+                <p>Total</p>
+                <p>RS.{cart.totalprice?.toLocaleString()}</p>
+            </div>
+            <div className='flex justify-between items-center text-lg'>
+                <p>Shipping</p>
+                <p>Free</p>
+            </div>
+            <div className='flex justify-between items-center text-lg mb-4 border-t pt-4'>
+                <p className='font-bold'>Total</p>
+                <p className='font-bold'> RS.{cart.totalprice?.toLocaleString()}</p>
+
+            </div>
       </div>
     </div>
   );

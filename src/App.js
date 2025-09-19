@@ -10,6 +10,7 @@ import CollectionPage from './pages/CollectionPage';
 import ProductDetails from './components/Products/ProductDetails';
 import ScrollToTop from './components/Common/ScrollToTop';
 import Checkout from './components/Cart/Checkout';
+import OrderConfirmation from './pages/OrderConfirmation';
 
 
 
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/collections/:collection" element={<CollectionPage />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/orderconfirmation" element={<OrderConfirmation  />} />
         </Route>
 
         {/* Admin Layout */}
