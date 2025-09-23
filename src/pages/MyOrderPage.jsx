@@ -1,16 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { use, useEffect } from 'react'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const MyOrderPage = () => {
 
     const [Orders, setOrders] = useState([]);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         //simulate faching order data
         setTimeout(() => {
             const mockOrders = [
                 { 
-                    id: 12345,
+                    _id: 12345,
                     careatedAt: new Date(),
                     shippingAddress: '123 Main St',
                     orderItems: [
@@ -21,13 +25,13 @@ const MyOrderPage = () => {
                         },
                     ],
                     totalPrise:100,
-                    isPaid: true,
+                    isPaid: false,
                     paidAt: new Date(),
-                    isDelivered: true,
+                    isDelivered: false,
                     deliveredAt: new Date(),
                 },
                 {
-                    id: 12346,
+                    _id: 12346,
                     careatedAt: new Date(),
                     shippingAddress: '123 Main St', 
                     orderItems: [
@@ -38,9 +42,9 @@ const MyOrderPage = () => {
                         },
                     ],
                     totalPrise:200,
-                    isPaid: true ,
+                    isPaid: false ,
                     paidAt: new Date(),
-                    isDelivered: true,
+                    isDelivered: false,
                     deliveredAt: new Date(),
                 }
             ];
@@ -48,6 +52,11 @@ const MyOrderPage = () => {
             setOrders(mockOrders);
             }, 1000);
         }, []);
+
+
+        const handleRowClick = (orderId) => {
+            navigate(`/order/${orderId}`);
+        };
 
   return (
     <div className='max-w-7xl mx-auto p-4 sm:p-6'>
@@ -69,7 +78,8 @@ const MyOrderPage = () => {
                 {Orders.length > 0 ? (
                     Orders.map((order) => (
                         <tr 
-                            key={order.id} 
+                            key={order._id} 
+                            onClick={() => handleRowClick(order._id)}
                             className='border-b hover:border-gray-50 cursor-pointer'>
                                 <td className='py-2 px-2 sm:py-4 sm:px-4'>
                                     <img
@@ -79,7 +89,7 @@ const MyOrderPage = () => {
                                     />
                                 </td>
                                 <td className='py-2 px-2 sm:py-4 sm:px-4'>
-                                    #{order.id}
+                                    #{order._id}
                                 </td>
                                 <td className='py-2 px-2 sm:py-4 sm:px-4'>
                                     {new Date(order.careatedAt).toLocaleDateString()}

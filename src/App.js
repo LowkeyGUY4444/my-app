@@ -11,6 +11,8 @@ import ProductDetails from './components/Products/ProductDetails';
 import ScrollToTop from './components/Common/ScrollToTop';
 import Checkout from './components/Cart/Checkout';
 import OrderConfirmation from './pages/OrderConfirmation';
+import OrderDetailsPage from './pages/OrderDetailsPage';
+import MyOrderPage from './pages/MyOrderPage';
 
 
 
@@ -32,6 +34,8 @@ const App = () => {
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orderconfirmation" element={<OrderConfirmation  />} />
+          <Route path="/order/:id" element={<OrderDetailsPage />} />
+          <Route path="/my-orders" element={<MyOrderPage />} />
         </Route>
 
         {/* Admin Layout */}

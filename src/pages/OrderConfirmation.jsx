@@ -1,7 +1,3 @@
-import React from 'react'
-
-
-
 
 const checkout = {
     _id:123456,
