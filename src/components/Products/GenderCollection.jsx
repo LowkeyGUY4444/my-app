@@ -14,7 +14,9 @@ const GenderCollection = () => {
             <img src={menCollImg} alt="Men's Collection" className=' w-full h-[700px] object-cover'></img>
             <div className='absolute bottom-8 left-8 bg-white bg-opacity-80 p-4'>
                 <h2 className='text-2xl font-bold  text-gray-800 mb-9'>Men's Collection</h2>
-                <Link to='/collection/all?gender=Men' className='text-gray-900 underline'>Shop Now</Link>
+                {/* <Link to='/collection/all?gender=Men' className='text-gray-900 underline'>Shop Now</Link> */}
+                <Link to='/collections/all' className='text-gray-900 underline'>Shop Now</Link>
+                
             </div>
         </div>
         {/* Womens Collection */}
